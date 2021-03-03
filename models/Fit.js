@@ -1,23 +1,27 @@
 const mongoose = require('mongoose');
 
 const fitSchema = new mongoose.Schema({
-    name: {
+    title: {
         type: String,
         required: true,
         trim: true,
     },
-    fitName: {
+    blogPost: {
         type: String,
         required: true,
         trim: true,
     },
-    password: {
+    nowPlaying: {
         type: String,
-        required: true,
         trim: true,
     },
-    birthday: {
-        type: Date,
+    weather: {
+        type: String,
+        trim: true,
+    },
+    vibe: {
+        type: String,
+        trim: true,
     },
 }, {timestamps: true});
 
