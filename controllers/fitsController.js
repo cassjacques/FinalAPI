@@ -1,26 +1,46 @@
 const db = require('../models');
 
-const index =  (req, res) => {
+const index = (req, res) => {
     db.Fit.find({}, (err, allFits) => {
         if (err) return console.log(err);
         res.json(allFits);
     });
 };
 
-const show =  (req, res) => {
-    res.send('<h1>fit show</h1>')
+const show = (req, res) => {
+    db.Fit.findById(req.params.id, (err, foundFit) => {
+        if (err) return console.log(err);
+        res.json(foundFit);
+    });
 };
 
-const create =  (req, res) => {
-    res.send('<h1>fit create</h1>')
+const create = (req, res) => {
+    db.Fit.create(req.body, (err, newFit) => {
+         if (err) return console.log(err);
+         res.json(newFit);
+    }); 
 };
 
-const update =  (req, res) => {
-    res.send('<h1>fit update</h1>')
+const update = (req, res) => {
+    db.Fit.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new: true},
+        (err, updatedFit) => {
+            if (err) return console.log(err);
+            res.json(updatedFit);
+        } 
+    );
 };
 
-const destroy =  (req, res) => {
-    res.send('<h1>fit destroy</h1>')
+const destroy = (req, res) => {
+    db.Fit.findByIdAndDelete(
+        req.params.id,
+        (err, deletedFit) => {
+            if (err) return console.log(err);
+            res.json(deletedFit);
+        }
+    );
 };
 
 module.exports = {
