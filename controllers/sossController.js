@@ -1,47 +1,47 @@
 const db = require('../models');
 
 const index = (req, res) => {
-    db.Fit.find({}, (err, allFits) => {
+    db.SOS.find({}, (err, allSOSs) => {
         if (err) return console.log(err);
-        res.json(allFits);
+        res.json(allSOSs);
     });
 };
 
 const show = (req, res) => {
-    db.Fit.findById(req.params.id, (err, foundFit) => {
+    db.SOS.findById(req.params.id, (err, foundSOS) => {
         if (err) return console.log(err);
         res.json(
-            foundFit
+            foundSOS
         );
     });
 };
 
 const create = (req, res) => {
-    db.Fit.create(req.body, (err, newFit) => {
+    db.SOS.create(req.body, (err, newSOS) => {
         if (err) return console.log(err);
-        console.log(newFit);
-        res.json(newFit);
+        console.log(newSOS);
+        res.json(newSOS);
     });
 };
 
 const update = (req, res) => {
-    db.Fit.findByIdAndUpdate(
+    db.SOS.findByIdAndUpdate(
         req.params.id,
         req.body,
         { new: true },
-        (err, updatedFit) => {
+        (err, updatedSOS) => {
             if (err) return console.log(err);
-            res.json(updatedFit);
+            res.json(updatedSOS);
         }
     );
 };
 
 const destroy = (req, res) => {
-    db.Fit.findByIdAndDelete(
+    db.SOS.findByIdAndDelete(
         req.params.id,
-        (err, deletedFit) => {
+        (err, deletedSOS) => {
             if (err) return console.log(err);
-            res.json(deletedFit);
+            res.json(deletedSOS);
         }
     );
 };

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const fitSchema = new mongoose.Schema({
+const sosSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -11,19 +11,24 @@ const fitSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
-    nowPlaying: {
+    brand: {
         type: String,
         trim: true,
     },
-    weather: {
+    size: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    condition: {
         type: String,
         trim: true,
     },
-    vibe: {
+    price: {
         type: String,
         trim: true,
     },
 }, { timestamps: true });
 
-const Fit = mongoose.model('Fit', fitSchema);
-module.exports = Fit;
+const SOS = mongoose.model('SOS', sosSchema);
+module.exports = SOS;
