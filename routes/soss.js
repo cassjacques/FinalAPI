@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const controllers = require('../controllers');
 
+router.get('/photo/:id', controllers.soss.photo);
+
 router.get('/', controllers.soss.index);
 
 router.get('/:id', controllers.soss.show);

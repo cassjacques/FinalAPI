@@ -28,6 +28,9 @@ const sosSchema = new mongoose.Schema({
         type: String,
         trim: true,
     },
+    fileName: {
+        type: String,
+    }
 }, { timestamps: true });
 
 const SOS = mongoose.model('SOS', sosSchema);

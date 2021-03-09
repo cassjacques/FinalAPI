@@ -19,7 +19,6 @@ const show = (req, res) => {
 const create = (req, res) => {
     db.Fit.create(req.body, (err, newFit) => {
         if (err) return console.log(err);
-        console.log(newFit);
         res.json(newFit);
     });
 };

@@ -19,7 +19,6 @@ const show = (req, res) => {
 const create = (req, res) => {
     db.SOS.create(req.body, (err, newSOS) => {
         if (err) return console.log(err);
-        console.log(newSOS);
         res.json(newSOS);
     });
 };
@@ -46,10 +45,16 @@ const destroy = (req, res) => {
     );
 };
 
+const photo = (req, res) => {
+    res.sendFile(`/uploads/${req.params.id}`)
+};
+
+
 module.exports = {
     index,
     show,
     create,
     update,
     destroy,
+    photo,
 };
