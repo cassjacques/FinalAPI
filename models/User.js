@@ -16,8 +16,8 @@ const userSchema = mongoose.Schema({
   city: {
     type: String,
   },
-  birthday: {
-    type: Date,
+  starsign: {
+    type: String,
   },
 }, {timestamps: true});
 

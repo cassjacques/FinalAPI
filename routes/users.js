@@ -4,6 +4,6 @@ const auth = require('../middleware/auth');
 
 router.post('/', usersCtrl.create);
 
-router.post('/profile', auth, usersCtrl.getProfile);
+router.get('/profile', auth, usersCtrl.getProfile);
 
 module.exports = router;

@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const db = require('../models');
 
 async function create(req, res) {
-  const { email, password, userName, city, birthday } = req.body;
+  const { email, password, userName, city, starsign } = req.body;
 
   if (!userName || !email || !password) {
     return res.status(400).json({ status: 400, message: 'All Fields Are Required' });
@@ -20,7 +20,7 @@ async function create(req, res) {
 
     const hash = await bcrypt.hash(password, salt);
 
-    const newUser = await db.User.create({ email, userName, city, birthday, password: hash });
+    const newUser = await db.User.create({ email, userName, city, starsign, password: hash });
 
     res.json(newUser);
   } catch (err) {
