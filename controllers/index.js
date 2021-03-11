@@ -4,4 +4,3 @@ module.exports = {
     usersCtrl: require('./usersController'),
     authCtrl: require('./authController'),
 };
-

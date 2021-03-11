@@ -6,7 +6,6 @@ async function auth(req, res, next) {
   try {
     const bearerHeader = req.headers["authorization"];
     if (typeof bearerHeader !== "undefined") {
-      console.log("bearer header is not undefined");
       const token = bearerHeader.split(" ")[1];
       jwt.verify(token, process.env.JWT_SECRET, function (err, payload) {
         if (err) return res.status(500).json({ message: "Invalid token" });
